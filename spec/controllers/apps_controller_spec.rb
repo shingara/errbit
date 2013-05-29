@@ -12,9 +12,8 @@ describe AppsController do
       it 'finds all apps' do
         sign_in Fabricate(:admin)
         3.times { Fabricate(:app) }
-        apps = App.all
         get :index
-        assigns(:apps).should == apps
+        assigns(:apps).should == App.all.sort
       end
     end
 

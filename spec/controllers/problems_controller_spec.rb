@@ -60,35 +60,35 @@ describe ProblemsController do
         context 'no params' do
           it 'shows problems for all environments' do
             get :index
-            assigns(:problems).size.should == 21
+            assigns(:problems).size.should == Problem.count
           end
         end
 
         context 'environment production' do
           it 'shows problems for just production' do
             get :index, :environment => 'production'
-            assigns(:problems).size.should == 6
+            assigns(:problems).size.should == Problem.where(:environment => 'production').count
           end
         end
 
         context 'environment staging' do
           it 'shows problems for just staging' do
             get :index, :environment => 'staging'
-            assigns(:problems).size.should == 5
+            assigns(:problems).size.should == Problem.where(:environment => 'staging').count
           end
         end
 
         context 'environment development' do
           it 'shows problems for just development' do
             get :index, :environment => 'development'
-            assigns(:problems).size.should == 5
+            assigns(:problems).size.should == Problem.where(:environment => 'development').count
           end
         end
 
         context 'environment test' do
           it 'shows problems for just test' do
             get :index, :environment => 'test'
-            assigns(:problems).size.should == 5
+            assigns(:problems).size.should == Problem.where(:environment => 'test').count
           end
         end
       end

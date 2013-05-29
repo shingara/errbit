@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "problems/show.html.haml" do
+  let!(:time) { Time.now }
   before do
     problem = Fabricate(:problem)
     comment = Fabricate(:comment)

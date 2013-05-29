@@ -4,7 +4,7 @@ describe DeploysController do
   render_views
 
   context 'POST #create' do
-    before do
+    before(:all) do
       @params = {
         'local_username' => 'john.doe',
         'scm_repository' => 'git@github.com/errbit/errbit.git',

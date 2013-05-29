@@ -40,7 +40,7 @@ RSpec.configure do |config|
   config.run_all_when_everything_filtered = true
   config.alias_example_to :fit, :focused => true
 
-  config.before(:each) do
+  config.before(:all) do
     DatabaseCleaner[:mongoid].strategy = :truncation
     DatabaseCleaner.clean
   end
